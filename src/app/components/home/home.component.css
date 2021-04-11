@@ -1,0 +1,23 @@
+
+#colortexto{
+    color: ghostwhite;
+  }
+
+#logonav{
+    border-radius: 50%;
+}
+
+.nav-item a:hover{
+  font-size:large;
+  text-decoration: underline;
+  
+}
+
+.tel p:hover{
+  font-size:x-large;
+  text-decoration: underline;
+  
+}
+
+*{list-style:none};
+

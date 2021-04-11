@@ -1,0 +1,23 @@
+.carousel-inner div img{
+    height: 36vw;
+   border-radius: 15px   
+}
+
+#img6{
+    width: 100%;
+    height: auto;
+}
+#img3{
+    width: 100%;
+    height: 66%;
+}
+#img7{
+    width: 100%;
+    height: 68%;
+}
+
+#img4{
+    width: 100%;
+    height: 68%;
+}
+

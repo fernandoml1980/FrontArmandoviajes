@@ -1,0 +1,15 @@
+body {
+    background: url('https://www.semana.com/resizer/J11de6ewqCT38pfGf-E2cL89kzE=/960x540/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/semana/QYPJTL66ORGHLF3UA5BYA256IQ.jpg') no-repeat center center fixed;
+       
+     background-attachment: fixed;
+     background-size: cover;
+     color: ghostwhite;
+     text-align: justify;
+ 
+   }
+
+   #bg{
+    background-color: rgba(3, 3, 3, 0.507);
+    border-radius: 15px;
+    
+}

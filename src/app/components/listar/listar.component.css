@@ -1,0 +1,9 @@
+#colortexto{
+    color: ghostwhite;
+  }
+
+#tabla{
+    table-layout: fixed;
+    word-wrap: break-word;
+    
+  }

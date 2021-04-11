@@ -1,0 +1,70 @@
+<div class="container" id="bg">
+    <form #actualizarClienteForm="ngForm" (ngSubmit)="Actualizar()" >
+        <div class="row justify-content-end ">
+            <div id="cotizar"></div>
+            <div class="col-lg-12 col-md-12 col-sm-12 text-center mt-3">
+                <h2>ACTUALIZAR SOLICITUD</h2>
+            </div>
+
+        </div>
+        <div class="row justify-content-evenly" *ngIf="datoStorage">
+            <div class="form-group col-lg-3 col-md-10 col-sm-10 mt-3 ">
+                <label for="nombre" required>Nombres</label>
+                <input type="text" class="form-control" id="nombre" name="Nombres" #nombres="ngModel" [(ngModel)]="datoStorage.nombres" > <!--name="Nombres"
+                        #Nombres="ngModel" [(ngModel)]="clientes.nombres" para configurara el elemento como de Angular-->
+            </div>
+            <div class="form-group col-lg-3 col-md-10 col-sm-10 mt-3 ">
+                <label for="nombre" required>Apellidos</label>
+                <input type="text" class="form-control" id="nombre" name="Apellidos" #apellidos="ngModel" [(ngModel)]="datoStorage.apellidos"
+                    >
+            </div>
+            <div class="form-group col-lg-3 col-md-10 col-sm-10 mt-3">
+                <label for="mail">Correo Electronico</label>
+                <input type="email" required class="form-control" id="mail" name="Mail" #mail="ngModel" [(ngModel)]="datoStorage.correo">
+            </div>
+            <div class="form-group col-lg-3 col-md-10 col-sm-10 mt-3 ">
+                <label for="mail">Telefono</label>
+                <input type="tel" required class="form-control" id="telefono" name="Telefono" #telefono="ngModel" [(ngModel)]="datoStorage.telefono" >
+            </div>
+        </div>
+        <div class="row justify-content-evenly" *ngIf="datoStorage">
+            <div class="form-group col-lg-4 col-md-5 col-sm-10 mt-3">
+                <label for="origen" required>Ciudad de Origen</label>
+                <input type="text" class="form-control" id="origen" name="Origen" #origen="ngModel" [(ngModel)]="datoStorage.ciudad_origen" >
+            </div>
+            <div class="form-group col-lg-4 col-md-5 col-sm-10 mt-3">
+                <label for="destino">Ciudad de Destino</label>
+                <input type="text" required class="form-control" id="destino" name="Destino" #destino="ngModel" [(ngModel)]="datoStorage.ciudad_destino"   >
+            </div>
+        </div>
+        <div class="row justify-content-evenly " *ngIf="datoStorage">
+
+            <div class="form-group col-lg-2 col-md-3 col-sm-10 mt-3  ">
+                <label for="salida">Fecha de Salida</label>
+                <input type="date" required class="form-control" id="salida" name="Salida" #salida="ngModel" [(ngModel)]="datoStorage.fecha_inicio"  >
+            </div>
+            <div class="form-group col-lg-2 col-md-3 mt-3 col-sm-10 ">
+                <label for="regreso">Fecha de Regreso</label>
+                <input type="date" required class="form-control" id="regreso" name="Regreso" #regreso="ngModel" [(ngModel)]="datoStorage.fecha_fin"  >
+            </div>
+            <div class="form-group col-lg-2 col-md-3    mt-3 col-sm-10 ">
+                <label for="cantidad"> Numero de Personas</label>
+                <input type="number" required class="form-control" id="cantidad" name="Cantidad" #cantidad="ngModel" [(ngModel)]="datoStorage.cantidad_pasajeros"  >
+            </div>
+            <div class="form-group col-lg-2 col-md-3    mt-3 col-sm-10 ">
+                <label for="cantidad"> Tipo de Servicio</label>
+                <select class="form-select" id="inputGroup"  name="Servicio" #tipo="ngModel" [(ngModel)]="datoStorage.tipo_servicio"  >
+                    <option value="Turismo">Turismo</option>
+                    <option value="Empresarial">Empresarial</option>
+                    <option value="Escolar">Escolar</option>
+                  </select>
+            </div>
+        </div>
+
+        <div class="row justify-content-center " *ngIf="datoStorage">
+            <div class="form-group col-lg-2 col-md-2 col-sm-2 mt-3 mx-auto ">
+                <button type="submit" class="btn btn-success mb-3">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
