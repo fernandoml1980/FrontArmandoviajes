@@ -15,25 +15,25 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/crear']" id="colortexto">Cotización</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" id="colortexto" target="_blank" href="https://api.whatsapp.com/send?phone=+573176611660">+57 3176611660</a>  
+          </li>
+          <li class="nav-item mt-2 " >
+            <a href="https://api.whatsapp.com/send?phone=+573176611660"
+              target="_blank">
+              <img src="../../../assets/imagenes/whatsapp.jpg" target="_blank" alt="watsapp" width="25wh">
+            </a>
+          </li>
         </ul>
         <div class="tel d-flex pt-3 mx-4">
           <ul class="navbar me-auto mb-2 mb-lg-0">
-            <li class="nav-item " >
-              <a href="https://api.whatsapp.com/send?phone=+573176611660"
-                target="_blank">
-                <img src="../../../assets/imagenes/whatsapp.jpg" target="_blank" alt="watsapp" width="60wh">
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="colortexto" target="_blank" href="https://api.whatsapp.com/send?phone=+573176611660">+57 3176611660</a>  
-            </li>
             <li class="nav-item" *ngIf="desbloquear">
               <a class="nav-link" [routerLink]="['/listar']" id="colortexto">Solicitudes</a>
             </li>
             <li class="nav-item" *ngIf="desbloquear">
               <a class="nav-link" [routerLink]="['/actualizar']" id="colortexto">Actualizar</a>
             </li>
-            <button class="btn btn-outline-success" type="submit" (click)="FormLogin()" id="colortexto">Admin</button>
+            <button class="btn btn-outline-success btn-sm " type="submit" (click)="FormLogin()" id="colortexto">Admin</button>
           </ul>
         </div>
 
