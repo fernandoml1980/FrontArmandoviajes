@@ -2,7 +2,12 @@
 
 import { Injectable } from '@angular/core'; //se encarga de enviar la informacion
 import { HttpClient, HttpHeaders } from '@angular/common/http'; // cabeceras 
-import { observable, Observable } from 'rxjs'; // vigila las ejecuciones que se realizan
+import { observable, Observable, BehaviorSubject } from 'rxjs'; // vigila las ejecuciones que se realizan
+
+//login
+import {UserI } from '../models/user';
+import {JwtReponseI} from '../models/jwt-response';
+import {tap} from 'rxjs/operators';
 
 
 @Injectable({
@@ -10,7 +15,10 @@ import { observable, Observable } from 'rxjs'; // vigila las ejecuciones que se 
 })
 export class ClienteService {
 
-  apiURL = 'http://localhost:3000/Clientes'; // conexion con la api
+  apiURL = 'http://localhost:3000/Clientes'; // conexion con la 
+  
+  outhSubject =new BehaviorSubject(false);
+  private token: string;
 
   constructor(private _http: HttpClient) { } //_http es una variable privada
 
@@ -60,6 +68,39 @@ export class ClienteService {
 
     return this._http.delete(this.apiURL+'/Borrar/'+id,options).pipe((res)=>res)
 
+  }
+
+  
+  login(user:UserI):Observable<JwtReponseI>{
+    return this._http.post<JwtReponseI>(this.apiURL+'/login/',user).pipe(tap(
+      (res:JwtReponseI)=>{
+        if (res){
+          //guarda token
+          this.saveToken(res.dataUser.accessToken,res.dataUser.expiresIn);
+        }
+      }
+    ))
+    
+  }
+
+  logout():void{
+    this.token='';
+    localStorage.removeItem("ACCESS_TOKEN");
+    localStorage.removeItem("EXPIRES_IN");
+
+  }
+
+  private saveToken (token:string, expiresIn:string):void{
+    localStorage.setItem('ACCESS_TOKEN',token)
+    localStorage.setItem('EXPIRES_IN',expiresIn)
+    this.token=token;
+  }
+
+  private getToken():string{
+    if (!this.token){
+      this.token=localStorage.getItem('ACCESS_TOKEN');
+    }
+    return this.token
   }
 
 }

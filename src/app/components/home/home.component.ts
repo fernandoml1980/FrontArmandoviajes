@@ -32,34 +32,8 @@ export class HomeComponent implements OnInit {
 }
 
   FormLogin(){
-    this.login='1'
+    this.router.navigateByUrl('/login')
   }
 
-  logout(){
-    this.login=''
-    this.desbloquear=''
-    window.location.reload();
-
-  }
-
-  Validacion(usu,clav){
-    this.usuarioEnviado=usu;
-    this.claveEnviada=clav;
-    this.limpiarUsu="";
-    this.limpiarClave=""
-    
-
-  if(this.usuarioEnviado === this.usuario && this.claveEnviada === this.clave ){
-    this.desbloquear='1'
-  }else{
-    alert("Usuario o Clave Erroneos")
-    this.login=''
-    this.desbloquear=''
-    this.router.navigate(['/listar']);
-    window.location.reload();
-  }
-
-  }
- 
 
 }

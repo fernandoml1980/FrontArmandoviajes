@@ -2,7 +2,7 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {routing} from './app.routing';
+import {routing} from './app.routing';//rutas
 import {FormsModule} from '@angular/forms';// para trabajar con formulario
 import {HttpClientModule} from '@angular/common/http'; // cabeceras
 
@@ -14,6 +14,7 @@ import { from } from 'rxjs';
 import { ActualizarComponent } from './components/actualizar/actualizar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     ActualizarComponent,
     FooterComponent,
     InicioComponent,
+    LoginComponent,
 
   ],
   imports: [ // importar los modulos

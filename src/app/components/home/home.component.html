@@ -16,47 +16,23 @@
             <a class="nav-link" [routerLink]="['/crear']" id="colortexto">Cotización</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="colortexto" target="_blank" href="https://api.whatsapp.com/send?phone=+573176611660">+57 3176611660</a>  
+            <a class="nav-link" id="colortexto" target="_blank"
+              href="https://api.whatsapp.com/send?phone=+573176611660">Chat</a>
           </li>
-          <li class="nav-item mt-2 " >
-            <a href="https://api.whatsapp.com/send?phone=+573176611660"
-              target="_blank">
-              <img src="../../../assets/imagenes/whatsapp.jpg" target="_blank" alt="watsapp" width="30wh" id="logonav">
+          <li class="nav-item mt-2 ">
+            <a href="https://api.whatsapp.com/send?phone=+573176611660" target="_blank">
+              <img src="../../../assets/imagenes/whatsapp.PNG" target="_blank" alt="watsapp" width="30wh" id="logonav">
             </a>
           </li>
         </ul>
         <div class="tel d-flex pt-3 mx-4">
           <ul class="navbar me-auto mb-2 mb-lg-0">
-            <li class="nav-item" *ngIf="desbloquear">
-              <a class="nav-link" [routerLink]="['/listar']" id="colortexto">Solicitudes</a>
-            </li>
-            <li class="nav-item" *ngIf="desbloquear">
-              <a class="nav-link" [routerLink]="['/actualizar']" id="colortexto">Actualizar</a>
-            </li>
-            <button class="btn btn-outline-success btn-sm " type="submit" (click)="FormLogin()" id="colortexto">Admin</button>
+            <button class="btn btn-outline-success btn-sm " type="submit" (click)="FormLogin()"
+              id="colortexto">Admin</button>
           </ul>
         </div>
 
       </div>
     </div>
   </nav>
-  <form #login="ngForm" *ngIf="login" id="bg">
-    <div class="row ">
-      <div class="form-group col-lg-3 col-md-12 col-sm-12 px-4 my-2 ">
-        <label for="Usuario"> Usuario</label>
-        <input type="text" placeholder="" class="form-control" id="usuario" name="Usuario" #usuario [(ngModel)]="limpiarUsu" >
-      </div>
-      <div class="form-group col-lg-3 col-md-12 col-sm-12 px-4 my-2 ">
-        <label for="Clave"> Clave</label>
-        <input type="password" class="form-control" id="clave" name="Clave" #clave [(ngModel)]="limpiarClave">
-      </div>
-      <div class="form-group col-lg-1 col-md-1 col-sm-2 my-auto px-4 my-2">
-        <button class="btn btn-success  " type="submit"
-          (click)="Validacion(usuario.value,clave.value)">Ingresar</button>
-      </div>
-      <div class="form-group col-lg-1 col-md-1 col-sm-2 my-auto px-4 my-2">
-        <button class="btn btn-danger  " type="submit" (click)="logout()">Salir</button>
-      </div>
-    </div>
-  </form>
 </div>

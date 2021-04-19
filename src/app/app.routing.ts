@@ -4,13 +4,17 @@ import {CrearComponent} from './components/crear/crear.component';
 import {ListarComponent} from './components/listar/listar.component';
 import {ActualizarComponent} from './components/actualizar/actualizar.component';
 import {InicioComponent} from './components/inicio/inicio.component';
+import{LoginComponent} from './components/login/login.component';
+
 
 
 const appRouter: Routes =[
     {path:'',component:InicioComponent}, //ruta del fornt para llegar a ese componente
     {path:'crear',component:CrearComponent},
     {path:'listar',component:ListarComponent}   ,
-    {path:'actualizar',component:ActualizarComponent}  
+    {path:'actualizar',component:ActualizarComponent},
+    {path:'login',component:LoginComponent}
+    
     
 ];
 
