@@ -10,21 +10,18 @@ import {ClienteService} from '../../services/cliente.service'
 })
 export class HomeComponent implements OnInit {
 
-  public usuario:string='admin';
-  public clave:string='admin';
-  public login:string='';
-  public desbloquear:string='';
-  public usuarioEnviado:string='';
-  public claveEnviada:string='';
-  public limpiarUsu='';
-  public limpiarClave='';
+
 
   constructor(private router:Router, private service:ClienteService) { }
 
+  condicion: boolean=false;
+
   ngOnInit(): void {
-    this.BackBlock()
+    this.BackBlock();
+    this.Condicion();
   }
 
+  
 
   BackBlock() // bloquea que se pueda devolver a la pagina anterior por seguridad
   {
@@ -35,11 +32,23 @@ export class HomeComponent implements OnInit {
 
   FormLogin(){
     this.router.navigateByUrl('/login')
+    this.Condicion()
   }
 
   FormLogout(){
     this.service.logout()
     this.router.navigateByUrl('')
+    this.Condicion();
+  }
+
+  Condicion(){ // funcion para control del ngIf
+    let token:string= localStorage.getItem('ACCESS_TOKEN');
+    if(token != null){
+      this.condicion=true
+    }else{
+      this.condicion=false
+    }
+  
   }
 
 

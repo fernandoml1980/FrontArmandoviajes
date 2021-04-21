@@ -54,8 +54,8 @@
                             <td class="text-center">{{solicitud.cantidad_pasajeros}}</td>
                             <td class="text-center">{{solicitud.tipo_servicio}}</td>
                             <td><button class="btn btn-outline-success" [routerLink]="['/actualizar']"
-                                    (click)="guardarStorage(solicitud)">Actualizar</button></td>
-                            <td><button class="btn btn-outline-danger"
+                                    (click)="guardarStorage(solicitud)" id="colortexto">Actualizar</button></td>
+                            <td><button class="btn btn-outline-danger" id="colortexto"
                                     (click)="EliminarSolicitud(solicitud._id)">Eliminar</button>
                             </td>
                         </tr>

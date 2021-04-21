@@ -43,7 +43,7 @@ export class ActualizarComponent implements OnInit {
             alert('No se Actualizo la Información')
           } else {
             alert('Datos Actualizados')
-            localStorage.clear() // limpia los datos del storage del navegador
+            localStorage.removeItem('solicitud') // limpia los datos del storage del navegador
             this.router.navigate(['/listar']);
           }
         },

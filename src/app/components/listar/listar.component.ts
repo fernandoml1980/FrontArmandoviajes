@@ -15,12 +15,13 @@ export class ListarComponent implements OnInit {
   public correo: string;// este valor lo pasa el html
 
   constructor(private service: ClienteService) {
-    this.cliente = new Clientes('', '', '', 0, '', '', '', '', '', 0, '')
+        this.cliente = new Clientes('', '', '', 0, '', '', '', '', '', 0, '')
   }
 
   ngOnInit(): void { // es para colocar las funciones que se ejecutan automaticamente al cargar el modulo
-    this.Listar()
+    this.Listar();
     this.BackBlock();
+    
   }
 
   BackBlock() // bloquea que se pueda devolver a la pagina anterior por seguridad

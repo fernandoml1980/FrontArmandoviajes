@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ClienteService} from '../../services/cliente.service'
 import {UserI} from '../../models/user'
 import {Router} from '@angular/router'
+import {HomeComponent} from '../home/home.component'
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,9 @@ export class LoginComponent implements OnInit {
   usuario: string;
   clave: string;
 
-  constructor(private clienteService:ClienteService,private router:Router) { }
+  constructor(private clienteService:ClienteService,private router:Router ) { }
+
+
 
   ngOnInit(): void {
   }
@@ -23,7 +26,10 @@ export class LoginComponent implements OnInit {
 
     this.clienteService.login(form.value).subscribe((res:any)=>{
       if(res.dataUser.accesstoken != null){
-        this.router.navigateByUrl('/listar')
+       
+        //this.router.navigateByUrl('/listar')
+        window.location.reload()        
+        
       }else{
         alert('Algo salio Mal')
       }      
@@ -32,6 +38,8 @@ export class LoginComponent implements OnInit {
     }
     
     )
+
+
 
   }
 

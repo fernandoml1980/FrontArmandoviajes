@@ -38,7 +38,7 @@ export class CrearComponent implements OnInit {
           alert(' No se pudo enviar la Solicitud')
         } else {
           alert('Solicitud Enviada');
-          //window.location.reload();
+          //window.location.reload();// si se activa, se desactiva navigateByUrl
           this.router.navigateByUrl("");
 
         }

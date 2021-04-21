@@ -1,36 +1,39 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light my-3  " id="bg">
     <div class="container-fluid">
-      <a class="navbar-brand"><img id="logonav" src="../../../assets/imagenes/logo.jpeg" alt="armandoviajes"
+      <a class="navbar-brand" (click)="Condicion()"><img id="logonav" src="../../../assets/imagenes/logo.jpeg" alt="armandoviajes"
           width="70wh"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" (click)="Condicion()"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <img src="../../../assets/imagenes/menu.png" alt="">
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['']" id="colortexto">Inicio</a>
+            <a class="nav-link" [routerLink]="['']" id="colortexto" (click)="Condicion()">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/crear']" id="colortexto">Cotización</a>
+            <a class="nav-link" [routerLink]="['/crear']" id="colortexto" (click)="Condicion()">Cotización</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="colortexto" target="_blank"
-              href="https://api.whatsapp.com/send?phone=+573176611660">Chat</a>
+              href="https://api.whatsapp.com/send?phone=+573176611660" (click)="Condicion()">Chat</a>
           </li>
           <li class="nav-item mt-2 ">
-            <a href="https://api.whatsapp.com/send?phone=+573176611660" target="_blank">
+            <a href="https://api.whatsapp.com/send?phone=+573176611660" target="_blank" (click)="Condicion()">
               <img src="../../../assets/imagenes/whatsapp.PNG" target="_blank" alt="watsapp" width="30wh" id="logonav">
             </a>
+          </li>
+          <li class="nav-item" *ngIf='condicion'>
+            <a class="nav-link" [routerLink]="['/listar']" id="colortexto" (click)="Condicion()" >Solicitudes</a>
           </li>
         </ul>
         <div class="d-flex pt-3 mx-4">
           <ul class="navbar me-auto mb-2 mb-lg-0 ">
             <button class="btn btn-outline-success btn-sm " type="submit" (click)="FormLogin()"
-              id="colortexto">Admin</button>
+              id="colortexto" *ngIf='!condicion'>Admin</button>
               <button class="btn btn-outline-danger btn-sm mx-2  " type="submit" (click)="FormLogout()"
-              id="colortexto">Sallir</button>
+              id="colortexto" *ngIf='condicion'>Cerrar Sesion</button>
           </ul>
         </div>
 
