@@ -19,11 +19,19 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form):void{
-    console.log('Login',form.value)
+    //console.log('Login',form.value)
 
-    this.clienteService.login(form.value).subscribe(res=>{
-      this.router.navigateByUrl('/listar')
-    })
+    this.clienteService.login(form.value).subscribe((res:any)=>{
+      if(res.dataUser.accesstoken != null){
+        this.router.navigateByUrl('/listar')
+      }else{
+        alert('Algo salio Mal')
+      }      
+    },(error)=>{
+      alert('Algo salio Mal.')
+    }
+    
+    )
 
   }
 

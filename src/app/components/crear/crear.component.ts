@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { Clientes } from '../../models/clientes';
 import { ClienteService } from '../../services/cliente.service';
+import {Router} from '@angular/router'
 
 
 @Component({
@@ -14,7 +15,7 @@ export class CrearComponent implements OnInit {
   public clientes: Clientes;
   public defaultTel = ""
 
-  constructor(private clienteService: ClienteService) {
+  constructor(private clienteService: ClienteService,private router:Router) {
     this.clientes = new Clientes('', '', '', null, '', '', '', '', '', null, '')//inicializa el objeto
   }
 
@@ -37,13 +38,15 @@ export class CrearComponent implements OnInit {
           alert(' No se pudo enviar la Solicitud')
         } else {
           alert('Solicitud Enviada');
-          window.location.reload();
+          //window.location.reload();
+          this.router.navigateByUrl("");
+
         }
       }, (error) => {
         var errorMensaje = <any>error;
         if (errorMensaje != null) {
           console.log(errorMensaje)
-          alert('Error al enviar, validar que el formulario tenga todos los datos')
+          alert('Error al enviar la solicitud, por favor validar que el formulario tenga todos los campos diligenciados y en el formato correcto')
         }
       }
 

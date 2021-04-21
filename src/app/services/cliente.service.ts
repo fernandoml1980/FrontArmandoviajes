@@ -8,6 +8,8 @@ import { observable, Observable, BehaviorSubject } from 'rxjs'; // vigila las ej
 import {UserI } from '../models/user';
 import {JwtReponseI} from '../models/jwt-response';
 import {tap} from 'rxjs/operators';
+import { isNullOrUndefined } from 'util';
+
 
 
 @Injectable({
@@ -74,9 +76,11 @@ export class ClienteService {
   login(user:UserI):Observable<JwtReponseI>{
     return this._http.post<JwtReponseI>(this.apiURL+'/login/',user).pipe(tap(
       (res:JwtReponseI)=>{
+        console.log(res);
         if (res){
           //guarda token
-          this.saveToken(res.dataUser.accessToken,res.dataUser.expiresIn);
+          this.saveToken(res.dataUser.accesstoken,res.dataUser.expiresIn);
+        
         }
       }
     ))
@@ -96,11 +100,27 @@ export class ClienteService {
     this.token=token;
   }
 
-  private getToken():string{
+  getToken():string{
     if (!this.token){
       this.token=localStorage.getItem('ACCESS_TOKEN');
     }
     return this.token
+  }
+
+  setUser(user){
+    let user_string = JSON.stringify(user);
+    localStorage.setItem('currentUser',user_string)
+
+  }
+  getCurrenUser(){
+    let user_string=localStorage.getItem('currentUser');
+    if (!isNullOrUndefined (user_string)){
+      let user=JSON.parse(user_string)
+      return user;
+    }else{
+      null
+    }
+
   }
 
 }

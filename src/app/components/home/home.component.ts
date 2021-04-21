@@ -1,6 +1,7 @@
 import { unsupported } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
+import {ClienteService} from '../../services/cliente.service'
 
 @Component({
   selector: 'app-home',
@@ -18,21 +19,27 @@ export class HomeComponent implements OnInit {
   public limpiarUsu='';
   public limpiarClave='';
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private service:ClienteService) { }
 
   ngOnInit(): void {
-    this.BackBlock();
+    this.BackBlock()
   }
 
+
   BackBlock() // bloquea que se pueda devolver a la pagina anterior por seguridad
-{
-   window.location.hash="no-back-button";
-   window.location.hash="Again-No-back-button"
-   window.onhashchange=function(){window.location.hash="no-back-button";}   
-}
+  {
+    window.location.hash = "no-back-button";
+    window.location.hash = "Again-No-back-button"
+    window.onhashchange = function () { window.location.hash = "no-back-button"; }
+  }
 
   FormLogin(){
     this.router.navigateByUrl('/login')
+  }
+
+  FormLogout(){
+    this.service.logout()
+    this.router.navigateByUrl('')
   }
 
 
